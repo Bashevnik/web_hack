@@ -701,13 +701,13 @@ select {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 65px;
 }
 
 .promo-section__num {
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 150%;
     color: var(--color-white);
     opacity: 0.9;
@@ -716,7 +716,7 @@ select {
 .promo-section__topic {
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 150%;
     color: #fff;
 }
@@ -724,7 +724,7 @@ select {
 .promo-section__tag {
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 150%;
     color: #fff;
     margin-bottom: 16px;
@@ -733,11 +733,10 @@ select {
 .promo-section__title {
     font-family: var(--second-family);
     font-weight: 700;
-    font-size: 40px;
+    font-size: 60px;
     line-height: 100%;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    text-align: center;
     color: #fff;
     margin-bottom: 24px;
 }
@@ -745,7 +744,7 @@ select {
 .promo-section__text {
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 150%;
     color: #fff;
     margin-bottom: 32px;
@@ -1081,9 +1080,14 @@ select {
 
 .voice-card__stars {
     margin-bottom: 24px;
-    font-size: 24px;
-    line-height: 1;
-    color: #fff;
+    line-height: 0;
+}
+
+.voice-card__stars-image {
+    display: block;
+    width: 116px;
+    height: 19px;
+    object-fit: contain;
 }
 
 .voice-card__quote {
@@ -2236,15 +2240,19 @@ select {
     }
 
     .voice-card__stars {
-        margin-bottom: 26px;
-        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .voice-card__stars-image {
+        width: clamp(100px, 30.93vw, 132px);
+        height: clamp(16px, 5.07vw, 22px);
     }
 
     .voice-card__quote {
-        margin: 24px 0 28px;
-        font-size: clamp(24px, 7vw, 31px);
-        line-height: 0.95;
-        letter-spacing: 0;
+        margin: 24px 0;
+        font-size: clamp(18px, 4.8vw, 22px);
+        line-height: 110%;
+        letter-spacing: -0.01em;
     }
 
     .voice-card__avatar {
@@ -2252,9 +2260,15 @@ select {
         height: 64px;
     }
 
+    .voice-card__name {
+        font-weight: 600;
+    }
+
     .voice-card__name,
     .voice-card__role {
-        font-size: 20px;
+        font-size: clamp(16px, 4.27vw, 18px);
+        line-height: 150%;
+        color: #fff;
     }
 
     .voices__cta {
@@ -2343,13 +2357,18 @@ select {
     .plans__row--header {
         align-items: start;
         border-bottom: none;
+        padding-bottom: clamp(78px, 24vw, 112px);
     }
 
     .plans__row--header .plans__cell {
+        --step-offset: 0px;
+        --line-offset: 0px;
+        --line-width: 100%;
         align-items: center;
         justify-content: flex-start;
-        padding: 0 0 18px !important;
+        padding: 0 !important;
         border-bottom: 0;
+        transform: translateY(var(--step-offset));
     }
 
     .plans__row--header .plans__cell:nth-child(1) {
@@ -2357,42 +2376,35 @@ select {
     }
 
     .plans__row--header .plans__cell:nth-child(2) {
-        margin-top: clamp(62px, 17vw, 78px);
+        --step-offset: clamp(34px, 10.67vw, 48px);
+        --line-offset: clamp(-16px, -4.27vw, -10px);
+        --line-width: 78%;
     }
 
     .plans__row--header .plans__cell:nth-child(3) {
-        margin-top: clamp(30px, 8vw, 42px);
+        --step-offset: 0px;
+        --line-offset: clamp(42px, 12.8vw, 58px);
+        --line-width: 88%;
     }
 
     .plans__row--header .plans__cell:nth-child(4) {
-        margin-top: 0;
+        --step-offset: clamp(-24px, -5.33vw, -16px);
+        --line-offset: clamp(82px, 24.5vw, 108px);
+        --line-width: 100%;
     }
 
     .plans__row--header .plans__cell:not(.plans__cell--feature)::after {
         content: "";
         position: static;
         display: block;
-        width: 100%;
+        width: var(--line-width);
         height: 1px;
         left: auto;
         right: auto;
         bottom: auto;
-        margin-top: 14px;
+        margin: 14px auto 0;
         background: rgba(255, 255, 255, 0.24);
-    }
-
-    .plans__row--header .plans__cell:nth-child(2)::after {
-        margin-top: 14px;
-        content: "";
-    }
-
-    .plans__row--header .plans__cell:nth-child(3)::after {
-        margin-top: 24px;
-    }
-
-    .plans__row--header .plans__cell:nth-child(4)::after {
-        margin-top: 34px;
-        content: "";
+        transform: translateY(var(--line-offset));
     }
 
     .plans__cell {
@@ -2412,11 +2424,11 @@ select {
     }
 
     .plans__image {
-        width: 100%;
-        max-width: clamp(100px, 29vw, 124px);
-        aspect-ratio: 1;
+        width: clamp(82px, 25.3vw, 112px);
+        height: clamp(83px, 25.6vw, 114px);
+        max-width: none;
         margin-bottom: 12px;
-        border-radius: 14px;
+        border-radius: clamp(14px, 4.2vw, 18px);
         object-fit: cover;
     }
 
@@ -2428,7 +2440,9 @@ select {
         line-height: 150%;
         text-align: center;
         color: #fff;
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: auto;
     }
 
     .plans__desc {
@@ -2439,7 +2453,9 @@ select {
         line-height: 150%;
         text-align: center;
         color: #fff;
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: auto;
     }
 
     .plans__actions {
