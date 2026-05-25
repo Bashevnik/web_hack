@@ -363,9 +363,12 @@ select {
 }
 
 .logo_wrapper {
+    display: block;
     max-width: 58px;
     max-height: 44px;
     flex: 0 0 auto;
+    line-height: 0;
+    text-decoration: none;
 }
 
 .logo {
@@ -1771,8 +1774,8 @@ select {
     }
 
     .header.is-open .header__content {
-        flex-wrap: wrap;
-        align-items: flex-start;
+        flex-wrap: nowrap;
+        align-items: center;
     }
 
     .logo_wrapper {
@@ -1838,7 +1841,6 @@ select {
     .header.is-open .logo_wrapper {
         position: relative;
         z-index: 52;
-        max-width: 54px;
     }
 
     .megamenu {
