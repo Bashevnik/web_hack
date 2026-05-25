@@ -702,6 +702,7 @@ select {
     align-items: center;
     gap: 16px;
     margin-bottom: 65px;
+    transform: translateY(-65px);
 }
 
 .promo-section__num {
@@ -1404,6 +1405,10 @@ select {
     margin-bottom: 0;
 }
 
+.plans__mobile-break {
+    display: none;
+}
+
 .plans__actions {
     margin-top: 44px;
     display: flex;
@@ -2083,6 +2088,7 @@ select {
 
     .promo-section__top {
         margin-bottom: clamp(36px, 12vw, 48px);
+        transform: none;
     }
 
     .promo-section__num,
@@ -2345,19 +2351,19 @@ select {
     .plans__table {
         width: 100%;
         max-width: 100%;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .plans__row {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        column-gap: clamp(8px, 2.8vw, 12px);
+        column-gap: clamp(6px, 2.2vw, 12px);
         min-width: 0;
     }
 
     .plans__row--header {
         align-items: start;
         border-bottom: none;
-        padding-bottom: clamp(78px, 24vw, 112px);
+        padding-bottom: clamp(86px, 25vw, 116px);
     }
 
     .plans__row--header .plans__cell {
@@ -2376,20 +2382,20 @@ select {
     }
 
     .plans__row--header .plans__cell:nth-child(2) {
-        --step-offset: clamp(34px, 10.67vw, 48px);
-        --line-offset: clamp(-16px, -4.27vw, -10px);
+        --step-offset: clamp(40px, 11.73vw, 54px);
+        --line-offset: clamp(6px, 1.8vw, 10px);
         --line-width: 78%;
     }
 
     .plans__row--header .plans__cell:nth-child(3) {
         --step-offset: 0px;
-        --line-offset: clamp(42px, 12.8vw, 58px);
+        --line-offset: clamp(50px, 14vw, 66px);
         --line-width: 88%;
     }
 
     .plans__row--header .plans__cell:nth-child(4) {
-        --step-offset: clamp(-24px, -5.33vw, -16px);
-        --line-offset: clamp(82px, 24.5vw, 108px);
+        --step-offset: clamp(-30px, -6.4vw, -20px);
+        --line-offset: clamp(90px, 25.6vw, 116px);
         --line-width: 100%;
     }
 
@@ -2456,6 +2462,10 @@ select {
         overflow-wrap: break-word;
         word-break: normal;
         hyphens: auto;
+    }
+
+    .plans__mobile-break {
+        display: initial;
     }
 
     .plans__actions {
