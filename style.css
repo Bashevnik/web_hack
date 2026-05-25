@@ -540,7 +540,7 @@ select {
     height: 24px;
     top: 0.2em;
     transform: none;
-    background: url("/assets/cubick.png") no-repeat center / contain;
+    background: url("./assets/cubick.png") no-repeat center / contain;
 }
 
 .column_desk {
@@ -559,11 +559,11 @@ select {
 }
 
 .thirdcolumn>.column_img_item:nth-child(2) .column_img {
-    background-image: url("/assets/firstimg.png");
+    background-image: url("./assets/firstimg.png");
 }
 
 .thirdcolumn>.column_img_item:nth-child(3) .column_img {
-    background-image: url("/assets/second_img.png");
+    background-image: url("./assets/second_img.png");
 }
 
 .column_item {
@@ -2210,7 +2210,7 @@ select {
     }
 
     .voices {
-        padding: 56px 0 16px;
+        padding: 56px 0 0;
     }
 
     .voices__title,
@@ -2283,6 +2283,8 @@ select {
 
     .voices__cta-media {
         width: 100%;
+        max-height: clamp(220px, 58vw, 280px);
+        aspect-ratio: 335 / 220;
         overflow: hidden;
         border-radius: 14px;
         line-height: 0;
@@ -2290,12 +2292,17 @@ select {
     }
 
     .voices__cta-image {
+        display: block;
+        width: 100%;
+        height: 100%;
         margin-bottom: 0;
         border-radius: 14px;
+        object-fit: cover;
+        object-position: center top;
     }
 
     .plans {
-        padding: 56px 0;
+        padding: 56px 0 64px;
     }
 
     .plans__header {
@@ -2341,8 +2348,8 @@ select {
     .plans__row--header .plans__cell {
         align-items: center;
         justify-content: flex-start;
-        padding: 0 0 clamp(24px, 7vw, 32px) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0 0 18px !important;
+        border-bottom: 0;
     }
 
     .plans__row--header .plans__cell:nth-child(1) {
@@ -2350,43 +2357,63 @@ select {
     }
 
     .plans__row--header .plans__cell:nth-child(2) {
-        margin-top: clamp(40px, 11vw, 52px);
+        margin-top: clamp(62px, 17vw, 78px);
     }
 
-    .plans__row--header .plans__cell:nth-child(3),
+    .plans__row--header .plans__cell:nth-child(3) {
+        margin-top: clamp(30px, 8vw, 42px);
+    }
+
     .plans__row--header .plans__cell:nth-child(4) {
         margin-top: 0;
     }
 
-    .plans__row--header .plans__cell:nth-child(2)::after,
-    .plans__row--header .plans__cell:nth-child(4)::after {
-        content: none;
+    .plans__row--header .plans__cell:not(.plans__cell--feature)::after {
+        content: "";
+        position: static;
+        display: block;
+        width: 100%;
+        height: 1px;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 14px;
+        background: rgba(255, 255, 255, 0.24);
     }
 
-    .plans__row:not(.plans__row--header),
-    .plans__actions {
-        display: none;
+    .plans__row--header .plans__cell:nth-child(2)::after {
+        margin-top: 14px;
+        content: "";
+    }
+
+    .plans__row--header .plans__cell:nth-child(3)::after {
+        margin-top: 24px;
+    }
+
+    .plans__row--header .plans__cell:nth-child(4)::after {
+        margin-top: 34px;
+        content: "";
     }
 
     .plans__cell {
-        padding: 18px 4px !important;
-        font-size: clamp(16px, 4.7vw, 20px);
-        line-height: 145%;
+        padding: 10px 4px !important;
+        font-size: 16px;
+        line-height: 150%;
         text-align: center;
         overflow-wrap: anywhere;
     }
 
     .plans__cell--feature {
         grid-column: 1 / -1;
-        padding: 24px 0 14px !important;
-        font-size: clamp(18px, 5vw, 20px);
-        line-height: 135%;
+        padding: 20px 0 8px !important;
+        font-size: 16px;
+        line-height: 150%;
         text-align: left;
     }
 
     .plans__image {
         width: 100%;
-        max-width: clamp(104px, 30vw, 126px);
+        max-width: clamp(100px, 29vw, 124px);
         aspect-ratio: 1;
         margin-bottom: 12px;
         border-radius: 14px;
@@ -2395,26 +2422,34 @@ select {
 
     .plans__name {
         max-width: 100%;
-        font-size: clamp(17px, 4.8vw, 21px);
-        line-height: 115%;
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        color: #fff;
         overflow-wrap: anywhere;
     }
 
     .plans__desc {
         max-width: 100%;
-        font-size: clamp(16px, 4.6vw, 20px);
-        line-height: 132%;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        color: #fff;
         overflow-wrap: anywhere;
     }
 
     .plans__actions {
-        margin-top: 54px;
-        gap: 28px;
+        margin-top: 32px;
+        gap: 18px;
     }
 
     .plans__btn,
     .plans__btn--primary {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .plans__btn--primary {
@@ -2423,11 +2458,11 @@ select {
     }
 
     .footer {
-        padding: 72px 0 72px;
+        padding: 64px 0 56px;
     }
 
     .footer__content {
-        gap: 56px;
+        gap: 40px;
     }
 
     .footer__brand {
@@ -2436,17 +2471,27 @@ select {
 
     .footer__nav,
     .footer__column {
-        gap: 22px;
+        gap: 10px;
+    }
+
+    .footer__column {
+        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .footer__column:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     }
 
     .footer__title {
-        font-size: 20px;
+        margin-bottom: 4px;
+        font-size: 16px;
     }
 
     .footer__link,
     .footer__legal-link,
     .footer__copyright {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .footer__text,
