@@ -598,6 +598,9 @@ select {
 }
 
 .more_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 18px;
@@ -607,7 +610,14 @@ select {
     position: relative;
 }
 
-
+.more_link span {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: translateY(1px) rotate(45deg);
+}
 
 .column_img_item {
     display: flex;
