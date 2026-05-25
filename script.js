@@ -1,9 +1,32 @@
 const header = document.querySelector(".header");
 const burger = document.querySelector(".header__burger");
+const nav = document.querySelector(".nav");
+const megamenu = document.querySelector(".megamenu");
+const megamenuContent = document.querySelector(".megamenu__content");
 const menuLinks = document.querySelectorAll(".megamenu a, .megamenu .column_item");
+const navOriginalParent = nav?.parentElement;
+const navNextSibling = nav?.nextSibling;
 let scrollPosition = 0;
 
 if (header && burger) {
+    const isMobileMenu = () => window.matchMedia("(max-width: 480px)").matches;
+
+    const moveNavToMenu = () => {
+        if (!nav || !megamenu || !megamenuContent || nav.parentElement === megamenu) {
+            return;
+        }
+
+        megamenu.insertBefore(nav, megamenuContent);
+    };
+
+    const restoreNav = () => {
+        if (!nav || !navOriginalParent || nav.parentElement === navOriginalParent) {
+            return;
+        }
+
+        navOriginalParent.insertBefore(nav, navNextSibling);
+    };
+
     const getScrollPosition = () => (
         window.scrollY ||
         document.documentElement.scrollTop ||
@@ -32,6 +55,10 @@ if (header && burger) {
             return;
         }
 
+        if (isOpen && isMobileMenu()) {
+            moveNavToMenu();
+        }
+
         header.classList.toggle("is-open", isOpen);
         burger.setAttribute("aria-expanded", String(isOpen));
         burger.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
@@ -40,6 +67,7 @@ if (header && burger) {
             lockScroll();
         } else {
             unlockScroll();
+            restoreNav();
         }
     };
 
@@ -60,6 +88,9 @@ if (header && burger) {
     window.addEventListener("resize", () => {
         if (window.innerWidth > 480) {
             setMenuState(false);
+            restoreNav();
+        } else if (header.classList.contains("is-open")) {
+            moveNavToMenu();
         }
     });
 }

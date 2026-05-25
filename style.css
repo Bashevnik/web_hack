@@ -1837,7 +1837,7 @@ select {
         z-index: 45;
         display: none;
         overflow-y: auto;
-        padding: 328px clamp(20px, 5.5vw, 28px) 24px;
+        padding: 104px clamp(20px, 5.5vw, 28px) 24px;
         background: var(--blue);
         overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
@@ -1849,10 +1849,9 @@ select {
 
     .header.is-open .nav {
         display: block;
-        flex: 0 0 100%;
-        order: 3;
         width: 100%;
-        margin: 28px 0 0;
+        max-width: 440px;
+        margin: 0 auto 44px;
     }
 
     .header.is-open .nav ul {
@@ -1995,7 +1994,7 @@ select {
     .header.is-open .header__buttons {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 8px;
         position: fixed;
         z-index: 46;
         left: clamp(20px, 5.5vw, 28px);
@@ -2015,7 +2014,7 @@ select {
     }
 
     .header.is-open .megamenu {
-        padding-bottom: 132px;
+        padding-bottom: 116px;
     }
 
     .hero {
@@ -2211,7 +2210,7 @@ select {
     }
 
     .voices {
-        padding: 56px 0 48px;
+        padding: 56px 0 16px;
     }
 
     .voices__title,
@@ -2259,8 +2258,8 @@ select {
     }
 
     .voices__cta {
-        margin-top: 88px;
-        gap: 32px;
+        margin-top: 72px;
+        gap: 20px;
     }
 
     .voices__cta-content {
@@ -2284,14 +2283,19 @@ select {
 
     .voices__cta-media {
         width: 100%;
+        overflow: hidden;
+        border-radius: 14px;
+        line-height: 0;
+        margin-bottom: 0;
     }
 
     .voices__cta-image {
+        margin-bottom: 0;
         border-radius: 14px;
     }
 
     .plans {
-        padding: 56px 0 72px;
+        padding: 56px 0;
     }
 
     .plans__header {
@@ -2320,7 +2324,7 @@ select {
     .plans__table {
         width: 100%;
         max-width: 100%;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .plans__row {
@@ -2337,7 +2341,7 @@ select {
     .plans__row--header .plans__cell {
         align-items: center;
         justify-content: flex-start;
-        padding: 0 0 24px !important;
+        padding: 0 0 clamp(24px, 7vw, 32px) !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -2359,6 +2363,11 @@ select {
         content: none;
     }
 
+    .plans__row:not(.plans__row--header),
+    .plans__actions {
+        display: none;
+    }
+
     .plans__cell {
         padding: 18px 4px !important;
         font-size: clamp(16px, 4.7vw, 20px);
@@ -2377,7 +2386,7 @@ select {
 
     .plans__image {
         width: 100%;
-        max-width: clamp(96px, 28vw, 120px);
+        max-width: clamp(104px, 30vw, 126px);
         aspect-ratio: 1;
         margin-bottom: 12px;
         border-radius: 14px;
